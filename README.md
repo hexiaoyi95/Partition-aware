@@ -19,12 +19,12 @@ cd Partition-aware
 pip install -r requirements.txt
 ```
 
-2. Prepare test sequences. We provide an example on [One Drive](). The original yuv sequences and compressed sequences are put into two different directories. If the original yuv sequence is named as *seq.yuv*, please name the compressed sequence at QP=37 as *seq_QP37.yuv*.
+2. Prepare test sequences. We provide an example on [One Drive](https://1drv.ms/u/s!AhjTb_4JKsIDiS5mwv5HTU36-k-F?e=x6OeAd). The original yuv sequences and compressed sequences are put into two different directories. If the original yuv sequence is named as *seq.yuv*, please name the compressed sequence at QP=37 as *seq_QP37.yuv*.
 
 
 ## Deploy a pre-trained model
 
-- for yuv input posr-processing:
+- for yuv input post-processing:
 ```Shell
 usage: inference.py [-h] [--QP QP] [--checkpoint CHECKPOINT]
                     [--test_num TEST_NUM] [--info INFO]
@@ -38,7 +38,7 @@ optional arguments:
                         checkpoint to be evaluted
   --test_num TEST_NUM, -n TEST_NUM
                         test frames number, default is 32
-  --info INFO           string to describle the result
+  --info INFO           output json filename
   --recYuv_path RECYUV_PATH
                         reconstructed yuv dir
   --origYuv_path ORIGYUV_PATH
@@ -50,7 +50,7 @@ optional arguments:
 
 ## Released model
 
-We released models for our partition-aware network and VRCNN+partition(i.e., 2-in+MM+AF and VRCNN+MM+AF in our paper) trained at QP=37 on [Google Drive]()
+We released models for our partition-aware network and VRCNN+partition(i.e., 2-in+MM+AF and VRCNN+MM+AF in our paper) trained at QP=37 on [One Drive](https://1drv.ms/u/s!AhjTb_4JKsIDjS43WdzjMJLZkzrg?e=OJiBRK)
 
 
 ## Citation
@@ -62,6 +62,7 @@ If you think this work is helpful for your own research, please consider add fol
   title={Partition-Aware Adaptive Switching Neural Networks for Post-Processing in HEVC},
   author={Lin, Weiyao and He, Xiaoyi and Han, Xintong and Liu, Dong and John, See and Zou, Junni and Xiong, Hongkai and Wu, Feng},
   journal={IEEE Transaction on Multimedia},
+  doi={10.1109/TMM.2019.2962310},
   year={2020},
   organization={IEEE}
 }

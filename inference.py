@@ -149,13 +149,11 @@ if __name__ == '__main__':
         parser.add_argument('--QP', '-q', type=int, default=37, help='test QP value')
         parser.add_argument('--checkpoint', '-c', type=str, default=' ', help='checkpoint to be evaluted')
         parser.add_argument('--test_num', '-n', type=int, default=32, help='test frames number, default is 32')
-        parser.add_argument('--info', type=str, default='test_result', help='string to describle the result')
-        parser.add_argument('--recYuv_path', type=str, default='',
-                            help='rec yuv dir')
-        parser.add_argument('--origYuv_path', type=str, default='',
-                            help='original yuv dir')
+        parser.add_argument('--info', type=str, default='test_result', help='output json filename')
+        parser.add_argument('--recYuv_path', type=str, default='', help='rec yuv dir')
+        parser.add_argument('--origYuv_path', type=str, default='', help='original yuv dir')
         parser.add_argument('--patch_size', type=int, default=64, help='patch_size, default is 64')
-        parser.add_argument('--Yonly', action="store_true", help='test Y channel onlyi if specified')
+        parser.add_argument('--Yonly', action="store_true", help='only test Y channel if specified')
         args = parser.parse_args()
 
         from collections import OrderedDict
@@ -175,8 +173,8 @@ if __name__ == '__main__':
 
         ### LOAD MODEL ###
         t_image = tf.placeholder('float32', [None, None, None, 2], name='input_image')
-        net = VRCNN_partition(t_image, is_train=False, reuse=False)
-        # net = partition_aware(t_image, is_train=False, reuse=False)
+        # net = VRCNN_partition(t_image, is_train=False, reuse=False)
+        net = partition_aware(t_image, is_train=False, reuse=False)
 
 
         tl.layers.initialize_global_variables(sess)
